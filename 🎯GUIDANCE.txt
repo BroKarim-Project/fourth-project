@@ -1,0 +1,85 @@
+
+- Awk pengen clean code sehingga
+    - Buat contentlayout
+    - buat reusable ui button : 
+
+- Navbar 
+https://nextjstemplates.com/templates/nextui-nextjs
+
+- Clean code 
+Fokus dengan shadCn
+
+- Tab 
+base on content, jadi nengok behindUI
+
+- pricing card
+    ~ https://tailwindcomponents.com/component/pricing-card-1
+    ~ https://tailwindcomponents.com/component/price-page
+
+- compare feature 
+    ~ https://github.com/mui/material-ui/blob/master/docs/pages/pricing.tsx 🔥Material UI Code 
+   ~ https://mambaui.com/components/pricing
+
+- Faq 
+    ~ Wasp
+
+- Font :    
+    ~ FontShare.com
+
+- Susuna folder
+    ~ Berdasarkan Material UI
+         - Ada page utama bernama pricing, karena kita react maka => app.tsx
+         - Semua hal di dalam pricing berbentuk komponen
+         - semua komponen berkaitan dengan pricing di taru di component/pricing/file.tsx
+         - sedangkang komponen yang ada d pricing namun tak berhubungan maka di component/
+
+
+=====================
+const menuData = [
+  {
+    id: 1,
+    title: "Home",
+    path: "/",
+  },
+  {
+    id: 2,
+    title: "Features",
+    path: "/#features",
+  },
+  {
+    id: 3,
+    title: "Pages",
+    submenu: [
+      {
+        id: 31,
+        title: "Blog Grid",
+        path: "/blog",
+      },
+      {
+        id: 32,
+        title: "Sign In",
+        path: "/auth/signin",
+      },
+      {
+        id: 33,
+        title: "Sign Up",
+        path: "/auth/signup",
+      },
+      {
+        id: 34,
+        title: "Docs",
+        path: "/docs",
+      },
+      {
+        id: 35,
+        title: "Support",
+        path: "/support",
+      },
+      {
+        id: 36,
+        title: "404",
+        path: "/error",
+      },
+    ],
+  },
+];

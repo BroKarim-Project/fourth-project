@@ -1,11 +1,17 @@
+import Navbar from './components/Navbar/navbar';
+import { Router, Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
     <>
-      <div className="flex min-h-screen min-w-screen items-center justify-center bg-black ">
-        <h1 className="text-white text-center text-5xl">Hello</h1>
-      </div>
+      <body className="bg-[#181c31] ">
+        <Navbar />
+      </body>
     </>
   );
 }
 
 export default App;
+
+// Bagusnya aru route, karena kita ingin Navbar dan Footer ada di semua halaman, nnti di dalamnya ada pricing page
+//di akhir aja tpi
