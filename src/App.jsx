@@ -1,12 +1,14 @@
 import Navbar from './components/Navbar/navbar';
 import { Router, Routes, Route } from 'react-router-dom';
+import Pricing from './pages/pricing';
 
 function App() {
   return (
     <>
-      <body className="bg-[#181c31] ">
+      <div className="px-4">
         <Navbar />
-      </body>
+        <Pricing />
+      </div>
     </>
   );
 }

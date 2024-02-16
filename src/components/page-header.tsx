@@ -3,16 +3,13 @@ import classNames from 'classname';
 
 function PageHeader({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <section className={classNames(' container mx-auto overflow-hidden sm:py-10', '   md:px-10', 'xl:min-w-full', className)} {...props}>
+    <section className={classNames(' container mx-auto overflow-hidden sm:py-10', 'xl:min-w-full', className)} {...props}>
       {children}
     </section>
   );
 }
 
-
-export {PageHeader}
-
-
+export { PageHeader };
 
 /*
 Mengapa ada ..props padahl sudh ada className?
