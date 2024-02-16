@@ -9,10 +9,11 @@ import Footer from '../components/Footer';
 export default function Pricing() {
   return (
     <SectionContainer className="container">
-      <PageHeader className="mt-20 font-bold text-5xl">Pricing</PageHeader>
-
-      <Tabs />
-      <CompareFeatures />
+      <PageHeader className=" font-bold text-5xl">Pricing</PageHeader>
+      <div className="relative">
+        <Tabs />
+        <CompareFeatures />
+      </div>
       <Faq />
       <Footer className="container" />
     </SectionContainer>

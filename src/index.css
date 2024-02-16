@@ -2,4 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.no-scroll {
+  overflow: hidden;
+}

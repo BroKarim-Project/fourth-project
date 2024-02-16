@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar/navbar';
 import { Router, Routes, Route } from 'react-router-dom';
 import Pricing from './pages/pricing';
+import './style.css'
 
 function App() {
   return (

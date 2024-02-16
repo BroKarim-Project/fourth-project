@@ -4,11 +4,8 @@ import { useEffect, useState } from 'react';
 
 import menuData from './menuData';
 
-
 const Navbar = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
-
-  const [stickyMenu, setStickyMenu] = useState(false);
 
   // submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
@@ -20,27 +17,42 @@ const Navbar = () => {
     }
   };
 
-  // Sticky menu
-  const handleStickyMenu = () => {
-    if (window.scrollY >= 80) {
-      setStickyMenu(true);
+  const handleNavigationToggle = () => {
+    setNavigationOpen(!navigationOpen);
+    if (!navigationOpen) {
+      document.body.classList.add('no-scroll');
     } else {
-      setStickyMenu(false);
+      document.body.classList.remove('no-scroll');
     }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleStickyMenu);
-  });
+    const handleResize = () => {
+      // Check if screen width exceeds desktop threshold (1024 pixels)
+      const isDesktop = window.innerWidth > 1024;
+
+      // If it's desktop, close the navigation
+      if (isDesktop) {
+        setNavigationOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
-    <header className={`fixed left-0 top-0 z-99999 w-full md:py-2 py-7 ${stickyMenu ? 'bg-white !py-4 shadow transition duration-100 dark:bg-black' : ''}`}>
+    <header className={` z-99999 w-full md:py-2 py-7 `}>
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
-        <div className="flex w-full items-center justify-between xl:w-1/4">
+        <div className="flex md:px-4 w-full items-center justify-between xl:w-1/4">
           <a href="/">By Karim</a>
 
           {/* <!-- Hamburger Toggle BTN --> */}
-          <button aria-label="hamburger Toggler" className="block xl:hidden" onClick={() => setNavigationOpen(!navigationOpen)}>
+          <button aria-label="hamburger Toggler" className="block xl:hidden" onClick={handleNavigationToggle}>
             <span className="relative block h-5.5 w-5.5 cursor-pointer">
               <span className="absolute right-0 block h-full w-full">
                 <span className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white ${!navigationOpen ? '!w-full delay-300' : 'w-0'}`}></span>
@@ -58,8 +70,8 @@ const Navbar = () => {
 
         {/* Nav Menu Start   */}
         <div
-          className={`invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full ${
-            navigationOpen && 'navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent'
+          className={`invisible h-0 w-full items-center justify-end gap-5 xl:visible xl:flex xl:h-auto xl:w-full ${
+            navigationOpen && 'navbar fixed  z-50 !visible  mt-4 h-auto min-h-screen rounded-md bg-white p-7.5 shadow-solid-5 xl:h-auto xl:p-0 '
           }`}
         >
           <nav>
@@ -97,11 +109,11 @@ const Navbar = () => {
                     </button>
                     {/* ini yang nampilin list submenu */}
                     <ul
-                      className={`submenu relative left-0 top-full w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
+                      className={`submenu relative left-0 top-full w-[250px] border-black border-2 rounded-md bg-white p-4 transition-[top] duration-300 group-hover:opacity-100  lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:top-full ${
                         openIndex === index ? '!-left-[25px]' : 'hidden'
                       }`}
                     >
-                      {menuItem.submenu.map((item, key) => (
+                      {menuItem.submenu?.map((item, key) => (
                         <li key={key} className="hover:text-primary">
                           <a href={item.path || '#'}>{item.title}</a>
                         </li>
@@ -112,15 +124,8 @@ const Navbar = () => {
               )}
             </ul>
           </nav>
-
-          <div className="mt-7 flex items-center gap-6 xl:mt-0">
-            <a href="https://github.com/NextJSTemplates/solid-nextjs" className="text-regular font-medium text-waterloo hover:text-primary">
-              GitHub Repo 🌟
-            </a>
-
-            <a href="https://nextjstemplates.com/templates/solid" className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho">
-              Get Pro 🔥
-            </a>
+          <div className="hidden md:flex justify-center px-5 ">
+            <img className="h-16 w-16 bg-white p-2 rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="" />
           </div>
         </div>
       </div>

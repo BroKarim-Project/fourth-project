@@ -83,3 +83,52 @@ const menuData = [
     ],
   },
 ];
+
+
+// Tab Functio but cant display component
+let [activeTab, setActiveTab] = useState(tabs[0].id);
+  let [content, setContent] = useState<ReactNode | null>(null);
+
+  const handleTabClick = (tab: Tab) => {
+    setActiveTab(tab.id);
+
+    switch (tab.id) {
+      case 'Figma':
+        setContent(<FigmaCard />);
+        break;
+      case 'Figjam':
+        setContent(<FigmaCard />);
+        break;
+      default:
+        setContent('');
+        break;
+    }
+  };
+
+    useEffect(() => {
+      const defaultTab = tabs.find((tab) => tab.id === activeTab) || tabs[0];
+      handleTabClick(defaultTab);
+    }, [activeTab]);
+
+    ----------------------
+    <div className="border-b border-gray-200 dark:border-gray-700 mb-4">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => handleTabClick(tab)}
+              className={`${activeTab === tab.id ? '' : 'hover:text-black'} relative bg-[#D9D9D9] md:w-24 w-20  z-10 px-3 py-1.5 md:text-sm text-xs font-medium   transition `}
+              style={{
+                color: 'black',
+                WebkitTapHighlightColor: '#000',
+              }}
+            >
+              {activeTab === tab.id}
+              {tab.label}
+            </button>
+          ))}
+        </div>
+        <div className="mt-5 my-2 w-full min-w-screen flex justify-center py-2">{content}</div>
+
+
+
+nkxnas

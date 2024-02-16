@@ -1,12 +1,26 @@
 // ni akan ada 2 tab yang nampilin komponen card,
 // file card buat aja 1, tpi iisnya 2 function
 import React, { ReactNode } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { FigmaCard, FigmaJam } from './card';
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState('Figma');
+  const [stickyMenu, setStickyMenu] = useState(false);
+
+  // Sticky menu
+  // const handleStickyMenu = () => {
+  //   if (window.scrollY >= 80) {
+  //     setStickyMenu(true);
+  //   } else {
+  //     setStickyMenu(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleStickyMenu);
+  // });
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -15,34 +29,38 @@ const Tabs = () => {
   return (
     <>
       <div>
-        <div className="border-b border-gray-200 dark:border-gray-700 mb-4">
+        <nav className={`border-2 p-1  top-0 flex-row gap-2 inline-flex border-gray-200 ${stickyMenu ? 'bg-gray-200  transition duration-100 ' : ''}`}>
           <button
             onClick={() => handleTabClick('Figma')}
-            className={`relative bg-[#D9D9D9] md:w-24 w-20 z-10 px-3 py-1.5 md:text-sm text-xs font-medium ${activeTab === 'Figma' ? '' : ''} hover:text-white hover:bg-black transition`}
+            className={`inline-flex items-center w-full px-5 md:px-8 py-3  mr-1 text-base font-semibold  no-underline align-middle  border border-transparent border-solid rounded-md cursor-pointer select-none sm:mb-0 sm:w-auto hover:bg-gray-200  hover:text-black   ${
+              activeTab === 'Figma' ? ' bg-blue-600 text-white hover:bg-blue-400' : 'bg-white  text-black'
+            }  transition`}
             style={{
               WebkitTapHighlightColor: '#000',
             }}
           >
-            Figma
+            Hobby
           </button>
           <button
             onClick={() => handleTabClick('Figjam')}
-            className={`relative bg-[#D9D9D9] md:w-24 w-20 z-10 px-3 py-1.5 md:text-sm text-xs font-medium ${activeTab === 'Figjam' ? 'active:text-yellow-200' : ''} hover:text-white hover:bg-black transition`}
+            className={`inline-flex items-center w-full px-5 md:px-8 py-3  mr-1 text-base font-semibold no-underline align-middle  border border-transparent border-solid rounded-md cursor-pointer select-none sm:mb-0 sm:w-auto hover:bg-bgray-200  hover:text-black   ${
+              activeTab === 'Figjam' ? ' bg-blue-600 text-white hover:bg-blue-400' : 'bg-white  text-black'
+            } transition`}
             style={{
               WebkitTapHighlightColor: '#000',
             }}
           >
-            Figjam
+            Maniac
           </button>
-        </div>
+        </nav>
         {/* === Tab Content === */}
-        <div className="mt-5 my-2 w-full flex justify-center py-2">
+        <div className="mt-2  w-full  ">
           {activeTab === 'Figma' ? (
-            <div className=" mx-auto px-20">
+            <div>
               <FigmaCard />
             </div>
           ) : (
-            <div className="bg-black mx-auto px-20">
+            <div>
               <FigmaJam />
             </div>
           )}
