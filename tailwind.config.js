@@ -14,6 +14,12 @@ module.exports = {
     fontFamily: {
       inter: ["Inter", "sans-serif"],
     },
+    screens: {
+      'sm': '545px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+    },
     extend: {
       colors: {
         current: "currentColor",

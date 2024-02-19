@@ -1,21 +1,18 @@
 import React from 'react';
-import { PageHeader } from '../components/page-header';
+
 import SectionContainer from '../components/SectionContainer';
 import Tabs from '../components/tabs';
 import CompareFeatures from '../components/compareFeatures';
 import Faq from '../components/faq';
-import Footer from '../components/Footer';
 
 export default function Pricing() {
   return (
-    <SectionContainer className="container">
-      <PageHeader className=" font-bold text-5xl">Pricing</PageHeader>
-      <div className="relative">
-        <Tabs />
-        <CompareFeatures />
-      </div>
+    <div className="px-6 w-full flex flex-col">
+      <h1 className="mb-4 sm:py-10 mb:mb-0 font-semibold text-4xl md:text-5xl">Pricing</h1>
+      <Tabs />
+      <CompareFeatures />
+
       <Faq />
-      <Footer className="container" />
-    </SectionContainer>
+    </div>
   );
 }

@@ -3,8 +3,8 @@ import classNames from 'classname';
 
 const SectionContainer = ({ children, className }) => (
   <>
-    <div className={classNames(' container mx-auto overflow-hidden sm:py-10', '   md:px-10', 'xl:min-w-full', className)}>
-      <div className="px-8 mx-auto">{children}</div>
+    <div className={classNames('overflow-hidden container mx-auto mb-2 py-10', className)}>
+      <div className="px-6 sm:px-2 mx-auto">{children}</div>
     </div>
   </>
 );

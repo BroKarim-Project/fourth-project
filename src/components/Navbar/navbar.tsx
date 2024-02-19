@@ -5,14 +5,16 @@ import { useEffect, useState } from 'react';
 import menuData from './menuData';
 
 const Navbar = () => {
+  //nilai awwl false 
   const [navigationOpen, setNavigationOpen] = useState(false);
 
-  // submenu handler
-  const [openIndex, setOpenIndex] = useState(-1);
-  const handleSubmenu = (index: any) => {
-    if (openIndex === index) {
-      setOpenIndex(-1);
-    } else {
+  // submenu handler, nilai awal -1
+  const [openIndex, setOpenIndex] = useState(-1); //buat variable state openIndex, diaman nilali awal -1
+  
+  const handleSubmenu = (index: any) => { //fungsi yng ngaur submenu
+    if (openIndex === index) { //jika submenu dalam keadaan terbuka, lalu kita tekan lagi maka ...
+      setOpenIndex(-1); //index akan == -1 agar submenu tertupu
+    } else { //namun jika index == -1 , lalu kia tekan maka ...
       setOpenIndex(index);
     }
   };
@@ -47,7 +49,7 @@ const Navbar = () => {
 
   return (
     <header className={` z-99999 w-full md:py-2 py-7 `}>
-      <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
+      <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4  xl:flex 2xl:px-0">
         <div className="flex md:px-4 w-full items-center justify-between xl:w-1/4">
           <a href="/">By Karim</a>
 

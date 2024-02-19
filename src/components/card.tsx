@@ -6,36 +6,47 @@ const plans = [
     title: 'Starter',
     price: 'Free',
     features: ['10 Users', 'Basic Features', '24/7 Support'],
-    buttonColor: 'bg-blue-black',
+    textcolor: 'text-black',
+    buttonColor: 'bg-transparent',
   },
   {
-    id: 1,
+    id: 2,
     title: 'Premium Plan',
     price: '$19.99',
     features: ['10 Users', 'Basic Features', '24/7 Support'],
-    buttonColor: 'bg-blue-black',
+    textColor: 'text-white',
+    buttonColor: 'bg-[#000]',
   },
   {
-    id: 1,
-    title: 'Organization Plan',
-    price: '$19.99',
+    id: 3,
+    title: 'Organization',
+    price: '$44.99',
     features: ['10 Users', 'Basic Features', '24/7 Support'],
-    buttonColor: 'bg-blue-black',
+    textColor: 'text-white',
+    buttonColor: 'bg-[#000]',
+  },
+  {
+    id: 4,
+    title: 'Enterprise',
+    price: '$74.99',
+    features: ['10 Users', 'Basic Features', '24/7 Support'],
+    textColor: 'text-white',
+    buttonColor: 'bg-[#000]',
   },
   // Add more plan objects as needed
 ];
 
 function FigmaCard() {
   return (
-    <div className="w-full ">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 justify-items-center">
         {plans.map((plan) => (
-          <div key={plan.id} className={`bg-white rounded-md border-gray-200 border-2 overflow-hidden  `}>
-            <div className="p-8">
+          <div key={plan.id} className={`bg-white sm:w-full w-5/6 rounded-md border-gray-200 border-2 overflow-hidden  `}>
+            <div className="p-4 sm:p-6">
               <h2 className="text-lg font-semibold text-black mb-4">{plan.title}</h2>
               <p className="text-3xl font-semibold text-black mb-2">{plan.price}</p>
               <div className="p-4">
-                <button className={`w-full transition-transform transform hover:scale-105 text-white rounded-md px-4 py-2  focus:outline-none focus:shadow-outline-blue bg-black ${plan.buttonColor}`}>Select Plan</button>
+                <button className={`w-full transition-transform transform hover:scale-105 px-6 py-2  focus:outline-none focus:shadow-outline-blue border-4 border-black rounded-md ${plan.buttonColor} ${plan.textColor}`}>Select Plan</button>
               </div>
               <ul className="text-sm text-gray-600 mb-6">
                 {plan.features.map((feature, index) => (
@@ -61,21 +72,24 @@ const plans2 = [
     title: 'Starter',
     price: '$100',
     features: ['10 Users', 'Basic Features', '24/7 Support'],
-    buttonColor: 'bg-blue-black',
+    textColor: 'text-white',
+    buttonColor: 'bg-[#000]',
   },
   {
-    id: 1,
+    id: 2,
     title: 'Premium Plan',
     price: '$19.99',
     features: ['10 Users', 'Basic Features', '24/7 Support'],
-    buttonColor: 'bg-blue-black',
+    textColor: 'text-white',
+    buttonColor: 'bg-[#000]',
   },
   {
-    id: 1,
+    id: 3,
     title: 'Organization Plan',
     price: '$19.99',
     features: ['10 Users', 'Basic Features', '24/7 Support'],
-    buttonColor: 'bg-blue-black',
+    textColor: 'text-white',
+    buttonColor: 'bg-[#000]',
   },
   // Add more plan objects as needed
 ];

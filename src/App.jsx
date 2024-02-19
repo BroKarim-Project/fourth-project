@@ -1,15 +1,15 @@
 import Navbar from './components/Navbar/navbar';
 import { Router, Routes, Route } from 'react-router-dom';
 import Pricing from './pages/pricing';
-import './style.css'
+import './style.css';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <>
-      <div className="px-4">
-        <Navbar />
-        <Pricing />
-      </div>
+      <Navbar />
+      <Pricing />
+      <Footer />
     </>
   );
 }

@@ -1,68 +1,66 @@
 import React from 'react';
 import { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'react-feather';
+import SectionContainer from './SectionContainer';
 
 const faqs = [
   {
-    question: 'How is Wasp different from Next.js / Nuxt.js / Gatsby?',
+    question: 'Where can i see a breakdown of my full seats and associated costs',
     answer: (
       <p>
-        <strong>TL;DR</strong> - These are frontend-first frameworks, with some limited backend capabilities. Wasp is a full-stack framework.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         <br />
-        <br />
-        The main difference between Wasp and the solutions listed above is that Wasp is a trully full-stack framework, meaning it brings both back-end and database next to front-end. You can think of it as Ruby on Rails, but made for JS
-        (React & Node.js) and full-stack.
-        <br />
-        <br />
-        Next.js, Gatsby and others started out as frontend frameworks for static sites. Although some of them now offer an option to use serverless functions, you still have to bring your own database and you'll also need some kind of a
-        server/backend if you'll need to run more complex operations.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
     ),
   },
   {
-    question: 'How is Wasp different from Ruby on Rails or Django?',
+    question: 'Whats the difference between a full seat and an editor seat',
     answer: (
       <p>
-        <strong>TL;DR</strong> - while Ruby on Rails and Django are considered full-stack frameworks, they require extra work to support modern “desktop” experience that most web apps offer today. Wasp is made specifically for that use case
-        and supports it out-of-the-box, with a lot of extra niceties that make developer's life easier.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         <br />
-        <br />
-        Ruby on Rails and Django both fall in the category of full-stack web frameworks - they allow you to write backend/server code and also generate html/css that gets sent to the client.
-        <br />
-        <br />
-        The main reason why they are often today not used as a standalone solution, but rather as an API server combined with frontend libraries such as React & Vue, is to add support for the client side manipulation of DOM. That’s
-        especially important for web applications with a lot of dynamic content (e.g. dashboards) where you want “smooth” experience of a desktop app. Imagine expanding a post on Twitter or moving a Trello card and suddenly the whole site
-        starts reloading - that's why you need React or Vue.
-        <br />
-        <br />
-        Wasp supports this behaviour out-of-the-box, along with all the best practices. One of the biggest time savers is automatic sharing of data models between the database, frontend and the client - with RoR of Django you’d typically
-        have implement a custom API (e.g. rest or graphql), while with Wasp you can skip that step in entirety.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
     ),
   },
   {
-    question: 'How hard is it to learn Wasp?',
+    question: 'How can i adjust who has admin privilages?',
     answer: (
       <p>
-        We measured! <strong>It takes about 30 minutes to get going</strong>, and most users find it pretty straight-forward. Since the majority of your coding will still be done in the tools you're familiar with (currently React &
-        Node.js), it's really a marginal change to what you're used to.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         <br />
-        <br />
-        The reason for that is that Wasp is a really simple configuration language, without any loops or variables - you can think of it as a JSON that is easier to read and is a bit smarter.
-        <br />
-        <br />
-        Still, although simple (and we plan to keep it that way), it's a real language so you get all the IDE goodies with it - syntax highlighting, auto-completion, live error reporting, ...
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
     ),
   },
   {
-    question: 'Do you support only React & Node.js currently?',
+    question: 'Can you send me an invoice',
     answer: (
       <p>
-        Yes, that is currently the supported stack. But, Wasp is being developed as a language/framework and architecture-agnostic tool, so we plan to add support for more languages and frameworks in the future.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         <br />
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.{' '}
+      </p>
+    ),
+  },
+  {
+    question: 'What if more people are added to my team every month',
+    answer: (
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         <br />
-        This is something we're pretty excited about and think could be potentially be a unique opportunity due to the language approach we're taking with Wasp.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+    ),
+  },
+  {
+    question: 'How much does Dev Mode cost?',
+    answer: (
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <br />
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
     ),
   },
@@ -71,45 +69,41 @@ const faqs = [
 const FaqItem = ({ keyP, faq }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className="py-6">
-      <dt key={keyP} className="text-base text-neutral-700">
+    <div className="py-2 border-none">
+      <dt key={keyP} className="text-base text-black ">
         <button
-          className="flex w-full items-center justify-between text-left"
+          className={`flex w-full py-2 items-center  text-left border-b-2 border-black  ${isExpanded ? 'border-none' : 'border-b-2 border-black'}`}
           onClick={() => {
             setIsExpanded(!isExpanded);
           }}
         >
-          <span>{faq.question}</span>
-          <div className="ml-6 text-yellow-500">{isExpanded ? <ChevronDown size={20} /> : <ChevronRight size={20} />}</div>
+          <div className="mr-2 ">{isExpanded ? <ChevronDown size={20} /> : <ChevronRight size={20} />}</div>
+          <span className="text-xl font-bold">{faq.question}</span>
         </button>
       </dt>
-      {isExpanded && <dd className="mt-2 text-neutral-500">{faq.answer}</dd>}
+      <dd className={`mt-2 transition-all duration-700 delay-75 ${isExpanded ? 'open' : 'closed'}`}>
+        <div className={`overflow-hidden border-b-2 border-black ${isExpanded ? 'visible' : 'hidden'}`}>{faq.answer}</div>
+      </dd>
     </div>
   );
 };
 
 const Faq = () => {
   return (
-    <div>
-      <div className="grid grid-cols-12" id="faq">
-        <div className="col-span-12 text-center">
-          <h2 className="mb-4 text-xl text-neutral-700 lg:text-2xl">Frequently asked questions</h2>
-          <p className="text-neutral-500">
-            For anything not covered here, join&nbsp;
-            <a href="https://discord.gg/rzdnErX" className="font-medium underline decoration-yellow-500 decoration-2">
-              our Discord
-            </a>
-            !
-          </p>
+    <>
+      <SectionContainer className="container md:pt-16 pt-10">
+        <div className="grid grid-cols-12" id="faq">
+          <div className="col-span-12 text-center">
+            <h2 className="mb-4 text-3xl text-black font-bold lg:text-4xl">Pricing FAQs</h2>
+          </div>
         </div>
-      </div>
-
-      <dl className="mx-auto mt-6 max-w-3xl divide-y divide-neutral-300">
-        {faqs.map((faq, idx) => (
-          <FaqItem keyP={idx} key={idx} faq={faq} />
-        ))}
-      </dl>
-    </div>
+        <dl className="mx-auto mt-6 max-w-3xl divide-y divide-neutral-300">
+          {faqs.map((faq, idx) => (
+            <FaqItem keyP={idx} key={idx} faq={faq} />
+          ))}
+        </dl>
+      </SectionContainer>
+    </>
   );
 };
 

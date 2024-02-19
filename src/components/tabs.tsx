@@ -29,10 +29,10 @@ const Tabs = () => {
   return (
     <>
       <div>
-        <nav className={`border-2 p-1  top-0 flex-row gap-2 inline-flex border-gray-200 ${stickyMenu ? 'bg-gray-200  transition duration-100 ' : ''}`}>
+        <nav className={`border-2 p-1  flex-row gap-2 inline-flex rounded-md border-gray-200 `}>
           <button
             onClick={() => handleTabClick('Figma')}
-            className={`inline-flex items-center w-full px-5 md:px-8 py-3  mr-1 text-base font-semibold  no-underline align-middle  border border-transparent border-solid rounded-md cursor-pointer select-none sm:mb-0 sm:w-auto hover:bg-gray-200  hover:text-black   ${
+            className={`inline-flex items-center w-full px-5 md:px-8 py-2 md:py-3  mr-1 text-sm md:text-base font-semibold  no-underline align-middle  border border-transparent border-solid rounded-md cursor-pointer select-none sm:mb-0 sm:w-auto hover:bg-gray-200  hover:text-black   ${
               activeTab === 'Figma' ? ' bg-blue-600 text-white hover:bg-blue-400' : 'bg-white  text-black'
             }  transition`}
             style={{
@@ -43,7 +43,7 @@ const Tabs = () => {
           </button>
           <button
             onClick={() => handleTabClick('Figjam')}
-            className={`inline-flex items-center w-full px-5 md:px-8 py-3  mr-1 text-base font-semibold no-underline align-middle  border border-transparent border-solid rounded-md cursor-pointer select-none sm:mb-0 sm:w-auto hover:bg-bgray-200  hover:text-black   ${
+            className={`inline-flex items-center w-full px-5 md:px-8 py-2 md:py-3  mr-1 text-sm md:text-base font-semibold no-underline align-middle  border border-transparent border-solid rounded-md cursor-pointer select-none sm:mb-0 sm:w-auto hover:bg-bgray-200  hover:text-black   ${
               activeTab === 'Figjam' ? ' bg-blue-600 text-white hover:bg-blue-400' : 'bg-white  text-black'
             } transition`}
             style={{
@@ -54,7 +54,7 @@ const Tabs = () => {
           </button>
         </nav>
         {/* === Tab Content === */}
-        <div className="mt-2  w-full  ">
+        <div className=" px-8 py-4  sm:px-0  w-full  ">
           {activeTab === 'Figma' ? (
             <div>
               <FigmaCard />
