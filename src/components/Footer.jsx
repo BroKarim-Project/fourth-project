@@ -15,9 +15,6 @@ export default function Footer() {
             .
           </p>
         </div>
-        <a href="https://popsy.co/" target="_blank" rel="noreferrer" className="font-medium underline underline-offset-4">
-          Illustration by Popsy.co
-        </a>
       </div>
     </footer>
   );

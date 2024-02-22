@@ -3,18 +3,22 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 import menuData from './menuData';
+import '../../style.css';
 
 const Navbar = () => {
-  //nilai awwl false 
+  //nilai awwl false
   const [navigationOpen, setNavigationOpen] = useState(false);
 
   // submenu handler, nilai awal -1
   const [openIndex, setOpenIndex] = useState(-1); //buat variable state openIndex, diaman nilali awal -1
-  
-  const handleSubmenu = (index: any) => { //fungsi yng ngaur submenu
-    if (openIndex === index) { //jika submenu dalam keadaan terbuka, lalu kita tekan lagi maka ...
+
+  const handleSubmenu = (index: any) => {
+    //fungsi yng ngaur submenu
+    if (openIndex === index) {
+      //jika submenu dalam keadaan terbuka, lalu kita tekan lagi maka ...
       setOpenIndex(-1); //index akan == -1 agar submenu tertupu
-    } else { //namun jika index == -1 , lalu kia tekan maka ...
+    } else {
+      //namun jika index == -1 , lalu kia tekan maka ...
       setOpenIndex(index);
     }
   };
@@ -51,15 +55,18 @@ const Navbar = () => {
     <header className={` z-99999 w-full md:py-2 py-7 `}>
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4  xl:flex 2xl:px-0">
         <div className="flex md:px-4 w-full items-center justify-between xl:w-1/4">
-          <a href="/">By Karim</a>
+          <a href="/" className="flex gap-2 items-center">
+            <img className="h-auto w-10 object-cover" src="./figma-icon.png" />
+            By Karim
+          </a>
 
           {/* <!-- Hamburger Toggle BTN --> */}
           <button aria-label="hamburger Toggler" className="block xl:hidden" onClick={handleNavigationToggle}>
             <span className="relative block h-5.5 w-5.5 cursor-pointer">
               <span className="absolute right-0 block h-full w-full">
-                <span className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white ${!navigationOpen ? '!w-full delay-300' : 'w-0'}`}></span>
-                <span className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-150 duration-200 ease-in-out dark:bg-white ${!navigationOpen ? 'delay-400 !w-full' : 'w-0'}`}></span>
-                <span className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-200 duration-200 ease-in-out dark:bg-white ${!navigationOpen ? '!w-full delay-500' : 'w-0'}`}></span>
+                <span className={`relative left-0 top-0 my-1 block h-1  bg-black delay-[0] duration-200 ease-in-out dark:bg-white ${!navigationOpen ? '!w-full delay-300' : 'w-0'}`}></span>
+                <span className={`relative left-0 top-0 my-1 block h-1  bg-black delay-150 duration-200 ease-in-out dark:bg-white ${!navigationOpen ? 'delay-400 !w-full' : 'w-0'}`}></span>
+                <span className={`relative left-0 top-0 my-1 block h-1  bg-black delay-200 duration-200 ease-in-out dark:bg-white ${!navigationOpen ? '!w-full delay-500' : 'w-0'}`}></span>
               </span>
               <span className="du-block absolute right-0 h-full w-full rotate-45">
                 <span className={`absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-black delay-300 duration-200 ease-in-out dark:bg-white ${!navigationOpen ? '!h-0 delay-[0]' : 'h-full'}`}></span>
@@ -82,12 +89,7 @@ const Navbar = () => {
                 menuItem.path ? (
                   // jika submenu tida ada
                   <li key={menuItem.id} className="group relative hover:opacity-65 focus:text-blue-300 text-black tracking-tighter">
-                    <a
-                      href={menuItem.path}
-                      className={`ud-menu-scroll  flex py-2 text-base lg:inline-flex lg:px-0 lg:py-6 text-dark dark:text-white group-hover:text-primary dark:group-hover:text-primary 
-                        
-                      `}
-                    >
+                    <a href={menuItem.path} className={`ud-menu-scroll  py-2 text-base lg:inline-flex no-underline text-black lg:px-0 lg:py-6 group-hover:text-primary  relative hover-underline-animation`}>
                       {menuItem.title}
                     </a>
                   </li>
@@ -101,7 +103,7 @@ const Navbar = () => {
                       {menuItem.title}
 
                       <span className="pl-1">
-                        <svg className={`duration-300 lg:group-hover:rotate-180`} width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg className={`transition duration-300 lg:group-hover:rotate-180`} width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M8.00039 11.9C7.85039 11.9 7.72539 11.85 7.60039 11.75L1.85039 6.10005C1.62539 5.87505 1.62539 5.52505 1.85039 5.30005C2.07539 5.07505 2.42539 5.07505 2.65039 5.30005L8.00039 10.525L13.3504 5.25005C13.5754 5.02505 13.9254 5.02505 14.1504 5.25005C14.3754 5.47505 14.3754 5.82505 14.1504 6.05005L8.40039 11.7C8.27539 11.825 8.15039 11.9 8.00039 11.9Z"
                             fill="currentColor"
